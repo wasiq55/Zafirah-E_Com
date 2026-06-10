@@ -3,19 +3,24 @@ import { store } from "../store/store";
 import { setError } from "../store/features/errorSlice";
 
 export const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,  
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
   withCredentials: true,
 });
 
+// FIX: attach interceptor to axiosInstance (NOT axios)
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const errorMsg =
+      error.response?.data?.message ||
+      error.message ||
+      "Something went wrong";
 
-axios.interceptors.response.use(
-    (response) => response,
-    (error) =>{
-        let errorMsg = error.response?.data?.message;
-        store.dispatch(setError(errorMsg));
-        return Promise.reject(error);
-    }
-)
+    store.dispatch(setError(errorMsg));
+
+    return Promise.reject(error);
+  }
+);

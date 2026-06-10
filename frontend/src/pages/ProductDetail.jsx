@@ -76,7 +76,7 @@ const ProductDetail = () => {
         const options = {
           key: res.data.razorpay_key,
           order_id: res.data.order.order_id,
-          name: "CricCart E-comm app",
+          name: "Zafirah E-comm app",
           description: "Product purchasing",
           amount: product?.price?.amount * 100, // Convert rupees to paise for Razorpay
           currency: product?.price?.currency,
@@ -95,9 +95,9 @@ const ProductDetail = () => {
             }
           },
           prefill: {
-            name: "Puneet",
-            contact: 9399336702,
-            email: "puneet@gmail.com",
+            name: "MD WASIQ ANWER",
+            contact: 7361895965,
+            email: "wasiqwasiq5555@gmail.com",
           },
           theme: {
             color: "blue",
