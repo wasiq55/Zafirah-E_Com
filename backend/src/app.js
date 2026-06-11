@@ -13,6 +13,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
 
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "Backend running successfully",
+  });
+});
+
 const allowedOrigins = [
   "http://localhost:5173",
   "https://zafirah-e-com-1.onrender.com"
@@ -25,6 +32,7 @@ app.use(
   })
 );
 
+
 app.use("/api/auth", authRouter);
 app.use("/api/products", productRouter);
 app.use("/api/payment", paymentRouter);
@@ -34,5 +42,7 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: "Internal Server Error" });
 });
+
+
 
 module.exports = app;

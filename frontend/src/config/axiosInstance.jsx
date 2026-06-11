@@ -2,13 +2,16 @@ import axios from "axios";
 import { store } from "../store/store";
 import { setError } from "../store/features/errorSlice";
 
+
 export const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials: true,
 });
+
+console.log("API URL:", import.meta.env.VITE_API_URL);
 
 axiosInstance.interceptors.response.use(
   (response) => response,
