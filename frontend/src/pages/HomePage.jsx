@@ -13,14 +13,9 @@ const HomePage = () => {
     try {
       setLoading(true);
       setError(null);
-
       const response = await fetchAllProducts(search, page);
-
-      console.log("Response:", response);
-
       setProducts(response?.products || []);
       setPagination(response?.pagination || {});
-
     } catch (error) {
       console.error(error);
       setError("Failed to load products. Please try again.");
@@ -187,13 +182,14 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+
         {/* Products Count */}
         <div className="mb-8">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <p className="text-gray-600">
               Showing{" "}
               <span className="font-semibold text-gray-900">
-                {products?.length || 0}
+                {products.length}
               </span>{" "}
               of{" "}
               <span className="font-semibold text-gray-900">
@@ -206,7 +202,6 @@ const HomePage = () => {
                 </span>
               )}
             </p>
-
             <div className="flex items-center gap-2 text-sm text-gray-500">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               <span>Live inventory</span>

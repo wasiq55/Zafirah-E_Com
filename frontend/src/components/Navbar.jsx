@@ -75,7 +75,7 @@ const Navbar = () => {
               onClick={() => navigate("/")}
               className="text-xl sm:text-2xl font-bold text-blue-600 cursor-pointer hover:text-blue-700 transition-colors"
             >
-              𝒵𝒜𝐹𝐼𝑅𝒜𝐻
+              Zafirah
             </h1>
           </div>
 

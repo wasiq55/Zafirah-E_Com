@@ -18,4 +18,4 @@ async function uploadFile(fileBuffer) {
   return result;
 }
 
-module.exports = {uploadFile};
+module.exports = { uploadFile };

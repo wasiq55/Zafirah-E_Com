@@ -10,7 +10,6 @@ export const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-// FIX: attach interceptor to axiosInstance (NOT axios)
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
