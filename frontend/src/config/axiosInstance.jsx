@@ -3,15 +3,17 @@ import { store } from "../store/store";
 import { setError } from "../store/features/errorSlice";
 
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: API_URL || "https://zafirah-e-com.onrender.com/api",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-console.log("API URL:", import.meta.env.VITE_API_URL);
+console.log("API URL:", API_URL);
 
 axiosInstance.interceptors.response.use(
   (response) => response,
